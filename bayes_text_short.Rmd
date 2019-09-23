@@ -1,0 +1,20 @@
+---
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Bayesian Statistics for Adaptive Designs
+
+Broadly speaking, statistical methods help us interpret data and determine what to believe. For example, what should we believe if a test result for a bacterial respiratory infection comes back positive?
+
+**Bayesian statistical methods** are a framework that have similarities to the way that humans learn. We have beliefs about aspects of the world works and these beliefs are modified through personal experience. For example, after washing clothes, it is a good idea to hang them outside to dry. However, sometimes it rains, thwarting our laundry goals, but teaching us the valuable lesson that hanging clothes outside when there are storm clouds is a bad idea. As time marches on, our future **decisions** become **conditional** on **prior information** and thus our insights and understanding grow iteratively.
+
+The concepts of **continuous learning** and **applying our existing knowledge** to new situations are the key differences between Bayesian and other approaches to statistical inference. For the last 50 years, Frequentist methods have dominated the clinical trial landscape. However, as the cost of computing power has decreased and research questions become more complex, Bayesian methods have become attractive to trialists. This is partly due to the features we have described (and some we have not) but also is due to the fact that the results from a Bayesian analysis are more intuitive than those from a Frequentist analysis and can therefore be much simpler to interpret.
+
+In **adaptive designs**, Bayesian methods really begin to shine. As we mentioned, they are well suited to **iterative analyses of accumulating data**, without invalidating the final results. Furthermore, Bayesian methods are **generative** in that they let us easily simulate what future data might look like conditional on our current information. This is an extremely useful feature because it allows us to use the results from an early analysis in a clinical trial, make projections of what the final trial could look like and then decide if we should continue enrolling patients. This leads to more **efficient** use of resources and is more **ethical** to patients.
+
+In this brief introduction, we have tried to impart some of the intuition relating to Bayesian methods and their use. However, we have really just touched the surface of this topic. For a more detailed look at Bayesian statistics in adaptive trials, including the answer to the question we posed in the first paragraph, please download our information sheet below.

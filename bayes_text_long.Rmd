@@ -1,0 +1,84 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+
+# Bayesian Statistics
+
+Through statistics we can learn and make decisions about the systems that we observe and measure.
+However, these systems are stochastic, meaning they exhibit natural random variation in the data generating process.
+This variation can be incorporated into our analyses by specifying probabilistic models -- mathematical formulations of the system.
+We can characterise the properties of the probability models via a process of statistical inference.
+The inference is conditional on both the model assumptions and the data.
+
+In frequentist statistics, the model usually comprises a family of *sampling densities* denoted by $f(y|\theta)$ governed by a fixed but unknown *parameter* $\theta$ taking values in a set $\Theta$. 
+As a function of the parameter for a given observation $\tilde y$, this is the  *likelihood function* $f(\tilde y|\theta)$. 
+Inferences about $\theta$ are made on the basis of this likelihood function that encodes our information about the value of $\theta$ given the observation $\tilde y$. 
+These inferences can then be used to draw conclusions about the system under study in terms of its relation to the model.
+
+In Bayesian inference, in addition to a probability model for the data generating process, a probability model is also specified for other unknown quantities.
+This means that the parameters are no longer assumed to be fixed.
+All model uncertainty is measured in terms of probability and inference proceeds by use of Bayes theorem, which tells us 
+$$
+p(\theta|\tilde y) = \frac{f(\tilde y|\theta)p(\theta)}{m(\tilde y)}
+$$
+That is, our prior knowledge of $\theta$, encoded by some probability distribution $p(\theta)$, is updated according to the the likelihood from the observation $\tilde y$ to yield a *posterior* distribution.
+The posterior, denoted $p(\theta|\tilde y)$, reflects our updated state of belief.
+The denominator $m(\tilde y)$, which is the marginal probability of the data, is a normalising constant that ensures the posterior is a valid probability distribution.
+Thus, in the Bayesian framework, statistical inferences are reduced to relevant summaries of the posterior.
+
+Historically, the majority of clinical trials have use frequentist methods that ask the question: "What would I expect to observe if there is no difference in the effectiveness of the two treatments being evaluated?"
+Many people find this framing to be both esoteric and unintuitive.
+Contrastingly, Bayesian statistics concerns itself with a more relevant question, namely "Given what I have observed, what is the probability that one treatment is better than the other?" 
+ 
+Some intuition into the usefulness of the Bayesian perspective can be gained through applying Bayes theorem to the simple problem of how one should interpret a positive test result for a particular infection.
+Here we cast $\theta$ as a hypothesis of infection and $\tilde y$ as a test result and suppose that the sensitivity and specificity of the test are 99% and 95% respectively.
+The sensitivity and specificity measures tell us the probability that the test is positive given that an infection is detected is 99% and the probability that the test is negative given that an infection is absent is 95% respectively.
+However, we are interested in the probability that we have the infection given the test is positive. 
+Assuming that the prevelance of this bacterial infection in the community is 1% and applying Bayes therom we arrive at an answer that is a little lower than 20%.  
+$$
+\begin{eqnarray} 
+p(\theta|\tilde y) &=& \frac{0.99 \times 0.01}{0.99 \times 0.01 + 0.05 \times 0.99} \\ &\approx& 0.17 
+\end{eqnarray}
+$$
+
+With very few exceptions, we possess prior knowledge about the system under examination.
+Sometimes this knowledge is very imprecise, but we will know something.
+In the above example we assumed that we had information on the population prevalence for infection. 
+In an efficacy study for a new treatment, prior knowledge may come from pilot studies, previous clinical trials investigating similar treatments, or even expert knowledge on the biology of the illness.
+Bayesian methods enable us to incorporate this existing knowledge (or belief) into our current study.
+As a consequence, we may find values for the parameters of interest that are closer to the true value.
+However, this strength can also lead to criticism due to the perceived negative implications of the subjective choice of priors. 
+Analysts must take care in formulating appropriate priors, exploring a range of skeptical, pessimistic and optimistic evidence. 
+One approach for exploring the implications of a given priors is assess the plausibility of data generated via the *prior predictive distribution*, which is the (modeled) distribution of $Y$ marginalized over the prior
+$$
+f(y') = \int_{\Theta} f(y'|\theta) p(\theta)d\theta
+$$
+
+Bayesian models are generative.
+The *posterior predictive* distribution gives the distribution of new data marginalised over the posterior, thereby accounting for the uncertainty in $\theta$
+$$
+f(y') = \int_{\Theta} f(y'|\theta) p(\theta|Y)d\theta
+$$
+The *posterior predictive* reflects how we believe future data would appear.
+
+In specifying probability models on unknown quantities such as model parameters we naturally move from interpreting probability as long-run frequencies to interpreting probability as reflecting subjective uncertainty.
+Updating the posterior distribution reflects how our uncertainty in knowledge of the model parameters changes with additional observations from the system.
+
+# How can Bayesian Statistics be used in adaptive designs?
+
+According to the FDA, a clinical study with an adaptive design is a study that includes a prospectively planned opportunity for modification of one or more specified aspects of the study design and hypotheses based on analysis of data (usually interim data) from subjects in the study (*Adaptive Design Clinical Trials for Drugs and Biologics*). 
+
+The Bayesian approach naturally works with the process of updating knowledge as information accrues yielding a coherent prediction and decision making framework.
+At any point in time, inferences, predictions, and decisions can be made based on the current posterior, that is, our current state of knowledge.
+As more observations are obtained, the current posterior can act as the prior distribution when incorporating the additional observations into a new updated posterior distribution.
+
+Adaptive designs may be more efficient, ethical, etc. due to additional flexibility.
+
+* Efficiency
+* Ethical
+* Flexibility
+* Response Adaptive Rand
+* Early stopping
+* Predictive probabilities

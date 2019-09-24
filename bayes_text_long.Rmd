@@ -31,8 +31,6 @@ Thus, in the Bayesian framework, statistical inferences are reduced to relevant 
 Historically, the majority of clinical trials have used frequentist methods that ask the question: "What would I expect to observe if there is no difference in the effectiveness of the two treatments being evaluated?"
 Many people find this framing to be both esoteric and unintuitive.
 Contrastingly, Bayesian statistics concerns itself with a more relevant question, namely "Given what I have observed, what is the probability that one treatment is better than the other?" 
- 
-**NOTE: I think the example below is useful for explaining how Bayes theorem works, but not necessarily for how to thnk about Bayesian statistics. Bayes theorem is true for everyone, but using Bayes theorem for everything is Bayesian. This same example would equally be applied by a frequentist because the prevalence reflects the long run frequency of the outcome in the population. Trying to think of a more "Bayesian" example which is still simple enough?.**
 
 Some intuition into the usefulness of the Bayesian perspective can be gained through applying Bayes theorem to the simple problem of how one should interpret a positive test result for a particular infection.
 Here we cast $\theta$ as a hypothesis of infection and $\tilde y$ as a test result and suppose that the sensitivity and specificity of the test are 99% and 95% respectively.
